@@ -18,10 +18,9 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   resources :users do
-    resources :dogs do
-      resources :photos
-    end
-end
+    resources :dogs
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,26 @@
+<%= provide(:title, @dog.name) %>
+
+<h1>Dog Profile</h1>
+
+
+
+<div class="row">
+  <aside class="col-md-=4">
+    <section class="user_info">
+
+        <ul>
+            <li><strong>Name:         </strong><%= @dog.name %></li>
+            <li><strong>Breed:        </strong><%= @dog.breed %></li>
+            <li><strong>Weight:       </strong><%= @dog.weight %></li>
+            <li><strong>Age:          </strong><%= @dog.age %></li>
+            <li><strong>Color:        </strong><%= @dog.color %></li>
+            <li><strong>Gender:       </strong><%= @dog.gender %></li>
+            <li><strong>City:         </strong><%= @dog.city %></li>
+            <li><strong>Personality:  </strong><%= @dog.personality %></li>
+            <li><strong>Dog ID:       </strong><%= @dog.id %></li>
+            <li><strong>Owner ID:     </strong><%= @dog.user_id %></li>
+        </ul>
+
+    </section>
+  </aside>
+</div>

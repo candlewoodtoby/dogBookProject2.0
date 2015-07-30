@@ -1,0 +1,11 @@
+<h1>Upload Your Dog's Photo</h1>
+
+
+
+<%= form_for(@photo, url: user_dog_photos_path) do |f| %>
+
+    <%= f.file_field :cloud_id %>
+
+  <%= f.submit "Upload Dog Photo", class: "btn btn-primary" %>
+<% end %>
+

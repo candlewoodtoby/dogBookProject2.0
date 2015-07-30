@@ -9,12 +9,13 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+    @user = User.find(params[:user_id])
 
   end
 
   def create
     @user = User.find(params[:user_id])
-    @dog = @user.dogs.build(dog_params)
+    @dog = @user.dogs.create(dog_params)
     # @dog = Dog.new(dog_params)
     # @dog.user_id = params[:user_id]
       if @dog.save

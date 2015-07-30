@@ -1,5 +1,6 @@
 class DogsController < ApplicationController
   def index
+
   end
 
   def new
@@ -8,14 +9,17 @@ class DogsController < ApplicationController
 
   def show
     @dog = Dog.find(params[:id])
+
   end
 
   def create
-    @dog = Dog.new(dog_params)
-    @dog.user_id = params[:user_id]
+    @user = User.find(params[:user_id])
+    @dog = @user.dogs.build(dog_params)
+    # @dog = Dog.new(dog_params)
+    # @dog.user_id = params[:user_id]
       if @dog.save
         flash[:success] = "Adding Your Dog Successful!"
-        redirect_to user_dog_path(params[:user_id], @dog.id)
+        redirect_to user_dog_path(@user, @dog)
       else
         render 'new'
       end

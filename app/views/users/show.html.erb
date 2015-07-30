@@ -6,6 +6,7 @@
       <h1>
         <%= gravatar_for @user %>
         <%= @user.name %>
+
       </h1>
     </section>
   </aside>
@@ -13,4 +14,12 @@
 
 <div class="row">
   <%= link_to "Add Dog", new_user_dog_path(@user), class: "btn btn-lg btn-success" %>
+
+</div>
+
+<div class="row">
+  <h3> Your Dogs: </h3>
+  <% @dog.each do |dog| %>
+    <%= link_to dog.name, user_dog_path(@user, dog) %><br>
+  <% end %>
 </div>

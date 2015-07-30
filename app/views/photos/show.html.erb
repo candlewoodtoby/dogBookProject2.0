@@ -1,5 +1,13 @@
-<h1>Photos#show</h1>
-<p>Find me in app/views/photos/show.html.erb</p>
+<h1>Photos</h1>
 
+<div>
+    <p>Owner name:
+      <%= @user.name %> </p>
 
-<%= cl_image_tag(@photo.cloud_id) %>
+    <p>Dog name:
+      <%= @dog.name %></p>
+
+    <p>You just added this photo:<br>
+      <%= cl_image_tag(@photo.cloud_id) %></p>
+</div>
+

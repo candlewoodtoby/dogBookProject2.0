@@ -10,7 +10,7 @@ class DogsController < ApplicationController
   def show
     @dog = Dog.find(params[:id])
     @user = User.find(params[:user_id])
-
+    @photo = Photo.where(dog_id: params[:id])
   end
 
   def create

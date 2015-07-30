@@ -28,5 +28,12 @@
 <div class="row">
     <p>Add Photo of Your Dog!</p>
     <%= link_to "Add Photo", new_user_dog_photo_path(@user, @dog), class: "btn btn-lg btn-success" %>
+</div>
 
+<div class="row">
+    <h3>Your Dog's Photo Collection</h3>
+
+    <% @photo.each do |photo| %>
+        <%= cl_image_tag(photo.cloud_id) %>
+    <% end %>
 </div>

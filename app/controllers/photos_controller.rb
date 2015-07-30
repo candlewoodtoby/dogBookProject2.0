@@ -10,21 +10,16 @@ class PhotosController < ApplicationController
     @user = User.find(params[:user_id])
     @dog = Dog.find(params[:dog_id])
     @photo = Photo.find(params[:id])
+
   end
 
   def create
     uploaded_file = params[:photo][:cloud_id].path
     cloudinary_file = Cloudinary::Uploader.upload(uploaded_file)
 
-
-
-
     @user = User.find(params[:user_id])
     @dog = Dog.find(params[:dog_id])
-
     @photo = @dog.photos.create(cloud_id: cloudinary_file["public_id"])
-
-
 
       if @photo.save
         flash[:success] = "Adding Your Photo Successful!"

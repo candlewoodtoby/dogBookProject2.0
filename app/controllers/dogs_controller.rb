@@ -1,6 +1,7 @@
 class DogsController < ApplicationController
   def index
-
+    @dogs = Dog.paginate(page: params[:page], :per_page => 7)
+    @user = User.find(params[:user_id])
   end
 
   def new
@@ -10,7 +11,7 @@ class DogsController < ApplicationController
   def show
     @dog = Dog.find(params[:id])
     @user = User.find(params[:user_id])
-    @photo = Photo.where(dog_id: params[:id])
+    @photo = Photo.where(dog_id: params[:id]).paginate(page: params[:page], :per_page => 4)
   end
 
   def create

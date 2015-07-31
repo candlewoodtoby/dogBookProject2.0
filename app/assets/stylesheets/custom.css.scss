@@ -146,11 +146,32 @@ input {
   }
 }
 
+/* Dogs index */
+.dogs {
+  list-style: none;
+  margin: 0;
+  li {
+  overflow: auto;
+  padding: 10px 0;
+  border-bottom: 1px solid $gray-lighter;
+  }
+}
 
 
+.profile {
+  list-style: none;
+  margin: 0;
+  li {
+  overflow: auto;
+  padding: 10px 0;
+  border-bottom: 1px solid $gray-lighter;
+  }
+}
 
 
-
+#logo {
+  margin: 30px
+}
 
 
 

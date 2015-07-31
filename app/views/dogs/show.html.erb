@@ -1,39 +1,35 @@
 <%= provide(:title, @dog.name) %>
+<div class="container">
+    <div class="row center">
+        <h3><%= @dog.name %>'s Profile</h3>
+    </div>
 
-<h1>Dog Profile</h1>
 
+    <div class="row center">
+        <div class="profile">
+            <h5>
+                <ul>
+                    <li>Name:         <%= @dog.name %></li>
+                    <li>Breed:        <%= @dog.breed %></li>
+                    <li>Weight:       <%= @dog.weight %></li>
+                    <li>Age:          <%= @dog.age %></li>
+                    <li>Color:        <%= @dog.color %></li>
+                    <li>Gender:       <%= @dog.gender %></li>
+                    <li>City:         <%= @dog.city %></li>
+                    <li>Personality:  <%= @dog.personality %></li>
+                </ul>
+            </h5>
+        </div>
+    </div>
 
+    <div class="row center">
+        <%= link_to "Add Photo!", new_user_dog_photo_path(@user, @dog), class: "btn btn-lg btn-success" %>
+    </div>
 
-<div class="row">
-  <aside class="col-md-=4">
-    <section class="user_info">
-
-        <ul>
-            <li><strong>Name:         </strong><%= @dog.name %></li>
-            <li><strong>Breed:        </strong><%= @dog.breed %></li>
-            <li><strong>Weight:       </strong><%= @dog.weight %></li>
-            <li><strong>Age:          </strong><%= @dog.age %></li>
-            <li><strong>Color:        </strong><%= @dog.color %></li>
-            <li><strong>Gender:       </strong><%= @dog.gender %></li>
-            <li><strong>City:         </strong><%= @dog.city %></li>
-            <li><strong>Personality:  </strong><%= @dog.personality %></li>
-            <li><strong>Dog ID:       </strong><%= @dog.id %></li>
-            <li><strong>Owner ID:     </strong><%= @dog.user_id %></li>
-        </ul>
-
-    </section>
-  </aside>
-</div>
-
-<div class="row">
-    <p>Add Photo of Your Dog!</p>
-    <%= link_to "Add Photo", new_user_dog_photo_path(@user, @dog), class: "btn btn-lg btn-success" %>
-</div>
-
-<div class="row">
-    <h3>Your Dog's Photo Collection</h3>
-
-    <% @photo.each do |photo| %>
-        <%= cl_image_tag(photo.cloud_id) %>
-    <% end %>
+    <div class="row center">
+        <h3><%= @dog.name %>'s Gallery</h3>
+            <% @photo.each do |photo| %>
+                <%= cl_image_tag(photo.cloud_id, :width => 200, :height => 400, :crop => :fit, :radius => 20) %></li>
+            <% end %>
+    </div>
 </div>

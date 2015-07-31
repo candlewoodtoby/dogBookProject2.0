@@ -1,25 +1,29 @@
 <%= provide(:title, @user.name) %>
 
-<div class="row">
-  <aside class="col-md-=4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
+<div class="container">
+    <div class="row">
+      <aside class="col-md-=4">
+        <section class="user_info">
+          <h1>
+            <%= gravatar_for @user %>
+            <%= @user.name %>
 
-      </h1>
-    </section>
-  </aside>
-</div>
+          </h1>
+        </section>
+      </aside>
+    </div>
 
-<div class="row">
-  <%= link_to "Add Dog", new_user_dog_path(@user), class: "btn btn-lg btn-success" %>
+    <div class="row center">
+      <%= link_to "Add New Dog", new_user_dog_path(@user), class: "btn btn-lg btn-success" %>
 
-</div>
+    </div>
 
-<div class="row">
-  <h3> Your Dogs: </h3>
-  <% @dog.each do |dog| %>
-    <%= link_to dog.name, user_dog_path(@user, dog) %><br>
-  <% end %>
+    <div class="dogs center">
+      <h3> Your Dogs: </h3>
+      <ul>
+        <% @dog.each do |dog| %>
+          <li><%= link_to dog.name, user_dog_path(@user, dog) %></li><br>
+        <% end %>
+      </ul>
+    </div>
 </div>

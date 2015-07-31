@@ -1,13 +1,17 @@
-<h1>Photos</h1>
+<div class="container">
+  <div class="row">
+      <h1>Photos</h1>
+  </div>
 
-<div>
-    <p>Owner name:
-      <%= @user.name %> </p>
+  <div class="row center">
+      <p>Owner name:
+        <%= @user.name %> </p>
 
-    <p>Dog name:
-      <%= @dog.name %></p>
-
-    <p>You just added this photo:<br>
-      <%= cl_image_tag(@photo.cloud_id) %></p>
+      <p>Dog name:
+        <%= @dog.name %></p>
+  </div>
+  <div class="row center">
+      <h3>You just added this photo:</h3>
+        <%= cl_image_tag(@photo.cloud_id, :width => 200, :height => 400, :crop => :fit, :radius => 20) %>
+  </div>
 </div>
-
